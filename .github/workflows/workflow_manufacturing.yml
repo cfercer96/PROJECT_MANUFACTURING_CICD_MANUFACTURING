@@ -18,7 +18,7 @@ jobs:
         ORIGIN_HOST=${{ secrets.DATABRICKS_ORIGIN_HOST }}
         ORIGIN_TOKEN=${{ secrets.DATABRICKS_ORIGIN_TOKEN }}
         NOTEBOOK_BASE="/Workspace/Users/cfernandez@carlosfernandez1996outlook.onmicrosoft.com/ETL_Project_CarlosF/proceso"
-        NOTEBOOKS=("00_bronze_ingest_catalogs" "01_bronze_hybrid_manufacturing_categorical" "01_bronze_manufacturing_defect_dataset" "02_silver_hybrid_manufacturing_categorical" "02_silver_manufacturing_defect_dataset" "03_gold_hybrid_manufacturing" "03_gold_manufacturing_defects" 04_load_gold_to_azure_sql)  # Agrega más según necesitesas
+        NOTEBOOKS=("00_bronze_ingest_catalogs" "01_bronze_hybrid_manufacturing_categorical" "01_bronze_manufacturing_defect_dataset" "02_silver_hybrid_manufacturing_categorical" "02_silver_manufacturing_defect_dataset" "03_gold_hybrid_manufacturing" "03_gold_manufacturing_defects" "04_load_gold_to_azure_sql")  # Agrega más según necesitesas
         mkdir -p notebooks_to_deploy
         for nb in "${NOTEBOOKS[@]}"; do
           echo "Exportando $nb en modo raw..."
