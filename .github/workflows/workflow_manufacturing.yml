@@ -298,7 +298,7 @@ jobs:
                 },
                 {
                   "task_key": "03_gold_manufacturing_defects"
-                },
+                }
               ]
             }
           ],
