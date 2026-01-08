@@ -164,7 +164,7 @@ jobs:
                   "task_key": "00_bronze_ingest_catalogs"
                 }
               ]
-            }
+            },
             {
               "task_key": "01_bronze_hybrid_manufacturing_categorical",
               "description": "Ingesta categorias hibridas de manufactura",
@@ -186,7 +186,7 @@ jobs:
                   "task_key": "00_bronze_ingest_catalogs"
                 }
               ]
-            }
+            },
             {
               "task_key": "02_silver_manufacturing_defect_dataset",
               "description": "transformacion defectos de manufactura",
@@ -207,7 +207,7 @@ jobs:
                   "task_key": "01_bronze_manufacturing_defect_dataset"
                 }
               ]
-            }
+            },
             {
               "task_key": "02_silver_hybrid_manufacturing_categorical",
               "description": "transformacion categorias hibridas de manufactura",
@@ -228,7 +228,7 @@ jobs:
                   "task_key": "01_bronze_hybrid_manufacturing_categorical"
                 }
               ]
-            }
+            },
             {
               "task_key": "03_gold_manufacturing_defects",
               "description": "load de datos de defectos de manufactura",
@@ -249,7 +249,7 @@ jobs:
                   "task_key": "02_silver_manufacturing_defect_dataset"
                 }
               ]
-            }
+            },
             {
               "task_key": "03_gold_hybrid_manufacturing",
               "description": "load de datos de categorias hibridas de manufactura",
@@ -270,7 +270,7 @@ jobs:
                   "task_key": "02_silver_hybrid_manufacturing_categorical"
                 }
               ]
-            }
+            },
             {
               "task_key": "04_load_gold_to_azure_sql",
               "description": "load de datos de manufactura a SQL",
