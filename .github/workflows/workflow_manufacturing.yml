@@ -196,7 +196,7 @@ jobs:
                 "base_parameters": {
                   "catalog": "catalog_project",
                   "bronze_schema": "bronze",
-                  "silver_schema": "silver",
+                  "silver_schema": "silver"
                 }
               },
               "existing_cluster_id": "$CLUSTER_ID",
@@ -217,7 +217,7 @@ jobs:
                 "base_parameters": {
                   "catalog": "catalog_project",
                   "bronze_schema": "bronze",
-                  "silver_schema": "silver",
+                  "silver_schema": "silver"
                 }
               },
               "existing_cluster_id": "$CLUSTER_ID",
@@ -238,7 +238,7 @@ jobs:
                 "base_parameters": {
                   "catalog": "catalog_project",
                   "gold_schema": "gold",
-                  "silver_schema": "silver",
+                  "silver_schema": "silver"
                 }
               },
               "existing_cluster_id": "$CLUSTER_ID",
@@ -259,7 +259,7 @@ jobs:
                 "base_parameters": {
                   "catalog": "catalog_project",
                   "gold_schema": "gold",
-                  "silver_schema": "silver",
+                  "silver_schema": "silver"
                 }
               },
               "existing_cluster_id": "$CLUSTER_ID",
@@ -285,7 +285,7 @@ jobs:
                   "secret_user_key": "sqluser",
                   "sql_database": "sqldb_etlproject",
                   "sql_schema": "dbo",
-                  "sql_server": "sqlsrv-etlproject.database.windows.net"
+                  "sql_server": "sqlsrv-etlproject.database.windows.net",
                   "uc_catalog": "catalog_project"
                 }
               },
