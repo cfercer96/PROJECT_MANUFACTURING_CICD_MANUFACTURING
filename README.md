@@ -1,41 +1,44 @@
-🏭 Manufacturing Analytics ETL Pipeline
+# 🏭 Manufacturing Analytics ETL Pipeline
 
-Arquitectura Medallion en Azure Databricks
+## Arquitectura Medallion en Azure Databricks
 
-Azure Databricks · PySpark · Delta Lake · Unity Catalog · Power BI · CI/CD
+Azure Databricks · PySpark · Delta Lake · Unity Catalog · Azure SQL · Power BI · CI/CD
 
-Pipeline automatizado de datos para análisis de procesos productivos y defectos de manufactura, implementado con arquitectura Bronze–Silver–Gold, gobierno de datos con Unity Catalog y consumo analítico en Power BI.
+Pipeline automatizado de datos para el **análisis de procesos productivos y defectos de manufactura**, implementado con arquitectura **Bronze–Silver–Gold**, gobierno de datos con **Unity Catalog** y consumo analítico en **Power BI**.
 
-🎯 Descripción
+---
 
-Pipeline ETL enterprise-grade que procesa datasets de manufactura (producción híbrida y defectos), transformando datos crudos en datasets analíticos listos para BI.
-El proyecto implementa la Arquitectura Medallion sobre Azure Databricks + Delta Lake, asegurando ACID, versionado, control de accesos y trazabilidad completa, con publicación final en Azure SQL / Power BI.
+## 🎯 Descripción
 
-✨ Características Principales
+Pipeline ETL **enterprise-grade** que procesa datasets de manufactura (producción híbrida y defectos), transformando datos crudos en **datasets analíticos listos para BI**.
 
-🔄 ETL Automatizado – Pipelines orquestados con Databricks Workflows
+El proyecto implementa la **Arquitectura Medallion** sobre **Azure Databricks + Delta Lake**, asegurando **ACID**, versionado, control de accesos y trazabilidad completa, con publicación final en **Azure SQL Database** para consumo desde **Power BI**.
 
-🏗️ Arquitectura Medallion – Bronze → Silver → Gold
+---
 
-🧱 Delta Lake – ACID transactions, schema evolution, time travel
+## ✨ Características Principales
 
-🔐 Unity Catalog – Gobierno de datos, permisos y aislamiento por capas
+- 🔄 **ETL Automatizado** – Pipelines orquestados con Databricks Workflows  
+- 🏗️ **Arquitectura Medallion** – Bronze → Silver → Gold  
+- 🧱 **Delta Lake** – ACID transactions, schema evolution y time travel  
+- 🔐 **Unity Catalog** – Gobierno de datos y permisos por capa  
+- 📊 **Power BI Ready** – Gold optimizado para visualización  
+- 🚀 **CI/CD** – Deploy automatizado desde GitHub Actions  
+- 📈 **KPIs de Manufactura** – Métricas listas para análisis operativo  
+- 🔔 **Monitoreo** – Logs y control de ejecuciones  
 
-📊 Power BI Ready – Gold optimizado para visualización
+---
 
-🚀 CI/CD – Deploy automatizado desde GitHub
+## 🏛️ Arquitectura
 
-📈 KPIs de Manufactura – Métricas listas para análisis operativo
+### Flujo de Datos
 
-🔔 Monitoreo – Logs detallados y control de ejecuciones
 
-🏛️ Arquitectura
-Flujo de Datos
 📄 CSV / Raw Data
       ↓
 🥉 Bronze Layer (Ingesta sin transformación)
       ↓
-🥈 Silver Layer (Limpieza + Normalización)
+🥈 Silver Layer (Limpieza y estandarización)
       ↓
 🥇 Gold Layer (KPIs y métricas de negocio)
       ↓
@@ -43,190 +46,133 @@ Flujo de Datos
       ↓
 📊 Power BI Dashboards
 
-📦 Capas del Pipeline
-🥉 Bronze Layer
 
-Propósito: Zona de aterrizaje (raw)
+## 📦 Capas del Pipeline
 
-Tablas:
+### 🥉 Bronze Layer
 
-bronze_hybrid_manufacturing
+**Propósito:** Zona de aterrizaje (raw)
 
-bronze_manufacturing_defects
+**Notebooks:**
+- `00_bronze_ingest_catalogs.ipynb`
+- `01_bronze_hybrid_manufacturing_categorical.ipynb`
+- `01_bronze_manufacturing_defect_dataset.ipynb`
 
-Características:
+**Características:**
+- Datos tal como vienen de origen  
+- Timestamp de ingesta  
+- Preservación histórica  
+- Sin validaciones  
 
-✅ Datos tal como vienen de origen
+---
 
-✅ Timestamp de ingesta
+### 🥈 Silver Layer
 
-✅ Preservación histórica
+**Propósito:** Limpieza y normalización
 
-✅ Sin validaciones ni transformaciones
+**Notebooks:**
+- `02_silver_hybrid_manufacturing_categorical.ipynb`
+- `02_silver_manufacturing_defect_dataset.ipynb`
 
-🥈 Silver Layer
+**Características:**
+- Tipos de datos corregidos  
+- Columnas estandarizadas  
+- Manejo de nulos y duplicados  
+- Reglas básicas de calidad  
 
-Propósito: Limpieza y estandarización
+---
 
-Tablas:
+### 🥇 Gold Layer
 
-silver_hybrid_manufacturing
+**Propósito:** Analytics-ready
 
-silver_manufacturing_defects
+**Notebooks:**
+- `03_gold_hybrid_manufacturing.ipynb`
+- `03_gold_manufacturing_defects.ipynb`
 
-Características:
+**KPIs Principales:**
+- Producción total por período  
+- Eficiencia del proceso  
+- Defectos por tipo y severidad  
+- Tasa de defectos por línea  
 
-✅ Tipos de datos corregidos
+**Características:**
+- Pre-agregaciones  
+- Optimizado para BI  
+- Alto performance  
 
-✅ Columnas normalizadas
+---
 
-✅ Manejo de nulos y duplicados
+### 📤 Publicación a Azure SQL
 
-✅ Reglas básicas de calidad
+**Notebook:**
+- `04_load_gold_to_azure_sql.ipynb`
 
-🥇 Gold Layer
+**Funcionalidad:**
+- Escritura de tablas Gold en Azure SQL Database  
+- Esquema optimizado para consumo BI  
+- Conexión directa desde Power BI
 
-Propósito: Analytics-ready
+---
 
-Tablas:
+### **Estructura del proyecto**
 
-gold_hybrid_manufacturing
+<img width="490" height="454" alt="image" src="https://github.com/user-attachments/assets/e055147e-7b8b-4535-94a1-948f4851e504" />
 
-gold_manufacturing_defects
+## 🛠️ Tecnologías
 
-KPIs y Métricas:
+| Tecnología | Propósito |
+|-----------|----------|
+| Azure Databricks | Procesamiento distribuido |
+| PySpark | Transformaciones ETL |
+| Delta Lake | ACID y versionado |
+| Unity Catalog | Gobierno de datos |
+| ADLS Gen2 | Data Lake |
+| Azure SQL Database | Capa de consumo |
+| Power BI | Visualización |
+| GitHub Actions | CI/CD |
 
-Producción total por planta y período
+---
 
-Eficiencia del proceso
+## 🚀 Uso
 
-Defectos por tipo y severidad
+**Orden de ejecución del pipeline:**
+1. Bronze  
+2. Silver  
+3. Gold  
+4. Load to Azure SQL  
 
-Tasa de defectos por línea de producción
+---
 
-Métricas listas para Power BI
+## 🔄 CI/CD
 
-Características:
+Pipeline automatizado con **GitHub Actions**:
+- Deploy de notebooks  
+- Creación / actualización de workflows  
+- Ejecución del pipeline  
+- Monitoreo y logs  
 
-✅ Pre-agregaciones
+---
 
-✅ Optimizado para BI
+## 📈 Dashboards
 
-✅ Alto performance
+Dashboards construidos en **Power BI**, consumiendo tablas **Gold** desde **Azure SQL Database** para análisis operativo y estratégico.
 
-✅ Consumo directo por SQL / Power BI
+---
 
-📁 Estructura del Proyecto
-PROJECT_MANUFACTURING_CICD_MANUFACTURING/
-│
-├── 📂 .github/
-│   └── 📂 workflows/
-│       └── 📄 deploy-etl.yml              # Pipeline CI/CD Databricks
-│
-├── 📂 ETL_Project_CarlosF/
-│   │
-│   ├── 📂 proceso/                        # ETL Medallion
-│   │   ├── 🥉 00_bronze_ingest_catalogs.ipynb
-│   │   ├── 🥉 01_bronze_hybrid_manufacturing_categorical.ipynb
-│   │   ├── 🥉 01_bronze_manufacturing_defect_dataset.ipynb
-│   │   ├── 🥈 02_silver_hybrid_manufacturing_categorical.ipynb
-│   │   ├── 🥈 02_silver_manufacturing_defect_dataset.ipynb
-│   │   ├── 🥇 03_gold_hybrid_manufacturing.ipynb
-│   │   ├── 🥇 03_gold_manufacturing_defects.ipynb
-│   │   └── 📤 04_load_gold_to_azure_sql.ipynb
-│   │
-│   ├── 📂 scripts/                        # Preparación de entorno
-│   │   └── 🐍 environment_preparation.py
-│   │
-│   ├── 📂 seguridad/                      # Gobierno y permisos
-│   │   └── 🐍 grants.py
-│   │
-│   ├── 📂 reversion/                      # Reversión de permisos
-│   │   └── 🐍 revoke.py
-│
-└── 📄 README.md
+## 🔍 Monitoreo
 
+**Databricks:**
+- Workflows → Historial de ejecuciones  
+- Logs por tarea  
 
-🛠️ Tecnologías
-Tecnología	Propósito
-Azure Databricks	Procesamiento distribuido con Spark
-Delta Lake	Storage con ACID y versionado
-PySpark	Transformaciones ETL
-Unity Catalog	Gobierno de datos y permisos
-ADLS Gen2	Data Lake
-Azure SQL Database	Capa de consumo
-Power BI	Visualización
-GitHub Actions	CI/CD
-⚙️ Requisitos Previos
+**GitHub Actions:**
+- Tab Actions  
+- Logs por ejecución  
 
-☁️ Cuenta de Azure
+---
 
-💻 Workspace de Azure Databricks
+## 👤 Autor
 
-🧱 Unity Catalog configurado
-
-🖥️ Cluster activo
-
-🐙 Cuenta de GitHub
-
-📦 Azure Data Lake Storage Gen2
-
-📊 Power BI Desktop
-
-🚀 Instalación y Configuración
-1️⃣ Clonar el repositorio
-git clone https://github.com/tu-org/etl-manufacturing.git
-cd etl-manufacturing
-
-2️⃣ Configurar Token de Databricks
-
-Databricks → User Settings → Developer → Access Tokens
-Generar token y guardarlo de forma segura.
-
-3️⃣ Configurar GitHub Secrets
-Secret	Descripción
-DATABRICKS_HOST	URL del workspace
-DATABRICKS_TOKEN	Token de acceso
-DATABRICKS_CLUSTER	Nombre del cluster
-💻 Uso
-🔄 Despliegue Automático (Recomendado)
-git add .
-git commit -m "feat: mejoras pipeline manufactura"
-git push origin main
-
-
-GitHub Actions ejecutará:
-
-📤 Deploy de notebooks
-
-🔧 Creación / actualización del workflow
-
-▶️ Ejecución Bronze → Silver → Gold
-
-📤 Publicación a Azure SQL
-
-🔧 Ejecución Manual en Databricks
-
-Ejecutar en orden:
-
-1. Bronze notebooks
-
-2. Silver notebooks
-
-3. Gold notebooks
-
-4. publish_gold_to_sql.py
-
-🔄 CI/CD
-Pipeline GitHub Actions
-Deploy notebooks
-Validación de cluster
-Creación de Databricks Workflow
-Ejecución automática
-
-Contacto:
-Carlos Andres Fernandez Cerdas
-Correo: cfercer96@gmail.com
-
-
-
+**Carlos Fernandez**  
+Data Engineer
