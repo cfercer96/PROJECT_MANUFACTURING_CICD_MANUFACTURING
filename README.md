@@ -209,60 +209,24 @@ GitHub Actions ejecutará:
 
 Ejecutar en orden:
 
-Bronze notebooks
+1. Bronze notebooks
 
-Silver notebooks
+2. Silver notebooks
 
-Gold notebooks
+3. Gold notebooks
 
-publish_gold_to_sql.py
+4. publish_gold_to_sql.py
 
 🔄 CI/CD
 Pipeline GitHub Actions
-
 Deploy notebooks
-
 Validación de cluster
-
 Creación de Databricks Workflow
-
 Ejecución automática
 
-Logs y monitoreo
+Contacto:
+Carlos Andres Fernandez Cerdas
+Correo: cfercer96@gmail.com
 
-⏰ Orquestación
 
-⏰ Schedule: Diario
 
-⏱️ Timeout: 4 horas
-
-🔒 Max concurrent runs: 1
-
-📈 Dashboards
-
-Dashboards construidos en Power BI consumiendo tablas Gold desde Azure SQL:
-
-KPIs de Producción
-
-Análisis de Defectos
-
-Tendencias temporales
-
-Comparativas por planta y línea
-
-🔍 Monitoreo
-En Databricks
-
-Workflows → Historial de ejecuciones
-
-Logs por tarea
-
-Detalle stdout / stderr
-
-En GitHub Actions
-
-Tab Actions
-
-Historial de deploys
-
-Logs por step
